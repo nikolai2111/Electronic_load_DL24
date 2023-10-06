@@ -18,7 +18,12 @@ class DataStore:
     def append(self, row):
         print(row)
         self.lastrow = row
-        self.data = self.data.append(row, ignore_index=True)
+        # monkey patch append to use pandas' internal function
+        self.data = self.data._append(row, ignore_index=True)
+        # better would be using concat according to stackoverflow. example:
+        # pd.DataFrame(df).append(new_row, ignore_index=True)
+        # becomes
+        # pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
 
     def write(self, basedir, prefix):
         filename = "{}_raw_{}.csv".format(prefix, datetime.now().strftime("%Y%m%d_%H%M%S"))
