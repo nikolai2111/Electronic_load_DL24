@@ -30,8 +30,9 @@ See the [v2.70 binary Protocol description](protocol_PX-100_2_70.md)
 
 For now, this is my personal fork.
 - I do not plan to maintain it
-- I do not plan to create binaries/installers for it
+- I do not plan to create binaries/installers for it (although it's probably easy since the original author has already set up Github Actions for it, so I might look into it at some point)
 - PRs are welcome, but I will likely not try to fix bugs myself that do not affect my own use of the application
+
 The changes I have made were created with a lot of trial and error since python is not a language I know. Basically,
 I have no idea what I am doing here.
 
