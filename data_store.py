@@ -40,3 +40,6 @@ class DataStore:
 
     def lastval(self, key):
         return self.lastrow[key]
+
+    def setlastval(self, key, val):
+        self.lastrow[key] = val

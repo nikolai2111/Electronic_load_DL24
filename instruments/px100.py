@@ -101,6 +101,7 @@ class PX100(Instrument):
             'is_on': 0.,
             'voltage': 0.,
             'current': 0.,
+            'power': 0.,
             'time': time(0),
             'cap_ah': 0.,
             'cap_wh': 0.,
