@@ -3,6 +3,7 @@
 import pyvisa as visa
 
 from instruments import px100
+import time
 
 
 class Instruments:
@@ -54,3 +55,5 @@ class Instruments:
         else:
             if len(self.instruments) == 0:
                 print("No instruments found")
+                time.sleep(2)
+                self.discover()
