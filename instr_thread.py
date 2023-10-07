@@ -18,6 +18,7 @@ class InstrumentWorker(QRunnable):
     def __init__(self):
         super().__init__()
         self.signals = InstrumentSignals()
+        self.signals.status_update.emit("Connecting to device...")
         self.signals.command.connect(self.add_command)
         self.signals.exit.connect(self.handle_exit)
         self.signals.start.connect(self.handle_start)
@@ -29,6 +30,7 @@ class InstrumentWorker(QRunnable):
 
     @pyqtSlot()
     def run(self):
+        self.signals.status_update.emit("Connecting to device...")
         instruments = Instruments()
         self.instr = instruments.instr()
         if not self.instr:
