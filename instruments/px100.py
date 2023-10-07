@@ -95,7 +95,7 @@ class PX100(Instrument):
     def __init__(self, device):
         print(device)
         self.device = device
-        self.name = "PX100"
+        self.name = "DL24"
         self.aux_index = 0
         self.data = {
             'is_on': 0.,
