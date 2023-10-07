@@ -64,11 +64,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.twinaxCurrent = self.ax.twinx()
         self.twinaxCurrent.tick_params(axis='y', colors='red')
 
+        self.twinaxPower = self.ax.twinx()
+        self.twinaxPower.tick_params(axis='y', colors='green')
+        
         self.twinaxTemp = self.ax.twinx()
         self.twinaxTemp.tick_params(axis='y', colors='grey')
-
-        self.twinaxPower = self.ax.twinx()
-        self.twinaxPower.tick_params(axis='y', colors='purple')
+        self.twinaxTemp.yaxis.tick_left()
 
         toolbar = NavigationToolbar(self.canvas, self)
         layout = QVBoxLayout()
@@ -116,6 +117,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.readCapAH.setText("{:5.3f} Ah".format(data.lastval('cap_ah')))
             self.readCapWH.setText("{:5.3f} Wh".format(data.lastval('cap_wh')))
             self.readTemp.setText("{:5.0f} °C".format(data.lastval('temp')))
+            self.readTempF.setText("{:5.0f} °F".format(data.lastval('temp') * 1.8 + 32))
             self.Wattage.setText("{:5.3f} W".format(power))
             self.readTime.setText(data.lastval('time').strftime("%H:%M:%S"))
 
@@ -123,34 +125,37 @@ class MainWindow(QtWidgets.QMainWindow):
             # clear axes
             self.ax.cla()
             self.twinaxCurrent.cla()
-            self.twinaxTemp.cla()
             self.twinaxPower.cla()
+            self.twinaxTemp.cla()
             # print cell label as graph title
             self.ax.set_title(self.cellLabel.text() + " (" + datetime.today().strftime('%Y-%m-%d') + ")")
             
             # left Y-axis (voltage)
-            if self.checkbox_v.isChecked():
-                data.plot(ax=self.ax, x='time', y=['voltage'], color='blue', xlim=xlim)
-                #self.ax.set_ylabel('Voltage, V')
-                self.ax.set_ylim(bottom=set_voltage)
-                # add units to y axes
-                self.ax.yaxis.set_major_formatter(ticker.FormatStrFormatter('%.1fV'))
-            else:
-                self.ax.get_yaxis().set_visible(False)
+            data.plot(ax=self.ax, x='time', y=['voltage'], color='blue', xlim=xlim)
+            #self.ax.set_ylabel('Voltage, V')
+            self.ax.set_ylim(bottom=set_voltage)
+            # add units to y axes
+            self.ax.yaxis.set_major_formatter(ticker.FormatStrFormatter('%.1fV'))
 
             # right Y-axis 1 (current)
-            if self.checkbox_c.isChecked():
-                data.plot(ax=self.twinaxCurrent, x='time', y=['current'], style='r')
-                self.twinaxCurrent.set_ylim(bottom=0)
-                self.twinaxCurrent.get_legend().remove()
-                self.twinaxCurrent.yaxis.set_major_formatter(ticker.FormatStrFormatter('%.1fA'))
-            else:
-                self.twinaxCurrent.get_yaxis().set_visible(False)
+            data.plot(ax=self.twinaxCurrent, x='time', y=['current'], style='r')
+            self.twinaxCurrent.set_ylim(bottom=0)
+            self.twinaxCurrent.get_legend().remove()
+            self.twinaxCurrent.yaxis.set_major_formatter(ticker.FormatStrFormatter('%.1fA'))
 
-            # right Y-axis 2 (temperature)
+            # right Y-axis 2 (power)
+            if self.checkbox_p.isChecked():
+                self.twinaxPower.spines.right.set_position(("axes", 1.1))
+                data.plot(ax=self.twinaxPower, x='time', y=['power'], color='green')
+                self.twinaxPower.set_ylim(bottom=0)
+                self.twinaxPower.get_legend().remove()
+                self.twinaxPower.yaxis.set_major_formatter(ticker.FormatStrFormatter('%.1f W'))
+            else:
+                self.twinaxPower.get_yaxis().set_visible(False)
+
+            # left Y-axis 2 (temperature)
             if self.checkbox_t.isChecked():
-                # offset for 2nd right y axis
-                self.twinaxTemp.spines.right.set_position(("axes", 1.1))
+                self.twinaxTemp.spines.left.set_position(("axes", -0.1))
                 data.plot(ax=self.twinaxTemp, x='time', y=['temp'], color='grey')
                 self.twinaxTemp.set_ylim(bottom=20)
                 self.twinaxTemp.get_legend().remove()
@@ -158,23 +163,11 @@ class MainWindow(QtWidgets.QMainWindow):
             else:
                 self.twinaxTemp.get_yaxis().set_visible(False)
 
-            # right Y-axis 3 (power)
-            if self.checkbox_p.isChecked():
-                # offset for 3rd right y axis
-                self.twinaxPower.spines.right.set_position(("axes", 1.2 if self.checkbox_t.isChecked() else 1.1))
-                data.plot(ax=self.twinaxPower, x='time', y=['power'], color='purple')
-                self.twinaxPower.set_ylim(bottom=0)
-                self.twinaxPower.get_legend().remove()
-                self.twinaxPower.yaxis.set_major_formatter(ticker.FormatStrFormatter('%.1f W'))
-            else:
-                self.twinaxPower.get_yaxis().set_visible(False)
-
-
             # legend
             lines1, labels1 = self.ax.get_legend_handles_labels()
             lines2, labels2 = self.twinaxCurrent.get_legend_handles_labels()
-            lines3, labels3 = self.twinaxTemp.get_legend_handles_labels()
-            lines4, labels4 = self.twinaxPower.get_legend_handles_labels()
+            lines3, labels3 = self.twinaxPower.get_legend_handles_labels()
+            lines4, labels4 = self.twinaxTemp.get_legend_handles_labels()
             self.ax.legend(lines1 + lines2 + lines3 + lines4, labels1 + labels2 + labels3 + labels4, loc='lower left')
 
             #self.canvas.fig.subplots_adjust(right=1)
@@ -250,8 +243,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.resize(settings.value("MainWindow/size", QSize(1024, 600)))
         self.move(settings.value("MainWindow/pos", QPoint(0, 0)))
         self.cellLabel.setText(settings.value("MainWindow/cellLabel", 'Cell x'))
-        self.checkbox_v.setCheckState(Qt.Checked if settings.value("MainWindow/checkbox_v", True) == 'true'  else Qt.Unchecked)
-        self.checkbox_c.setCheckState(Qt.Checked if settings.value("MainWindow/checkbox_c", True) == 'true'  else Qt.Unchecked)
         self.checkbox_t.setCheckState(Qt.Checked if settings.value("MainWindow/checkbox_t", True) == 'true'  else Qt.Unchecked)
         self.checkbox_p.setCheckState(Qt.Checked if settings.value("MainWindow/checkbox_p", True) == 'true'  else Qt.Unchecked)
 
@@ -269,8 +260,6 @@ class MainWindow(QtWidgets.QMainWindow):
         settings.setValue("MainWindow/size", self.size())
         settings.setValue("MainWindow/pos", self.pos())
         settings.setValue("MainWindow/cellLabel", self.cellLabel.text())
-        settings.setValue("MainWindow/checkbox_v", self.checkbox_v.isChecked())
-        settings.setValue("MainWindow/checkbox_c", self.checkbox_c.isChecked())
         settings.setValue("MainWindow/checkbox_t", self.checkbox_t.isChecked())
         settings.setValue("MainWindow/checkbox_p", self.checkbox_p.isChecked())
         settings.sync()

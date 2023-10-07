@@ -236,7 +236,7 @@
           <item>
            <widget class="QGroupBox" name="enabledgraphs">
             <property name="title">
-             <string>Graphs</string>
+             <string>Additional graphs</string>
             </property>
             <layout class="QFormLayout" name="formLayout">
              <property name="fieldGrowthPolicy">
@@ -246,53 +246,10 @@
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
              
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_v">
-               <property name="text">
-                <string>Voltage</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QCheckBox" name="checkbox_v">
-               <property name="text">
-                <string>Enabled</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_c">
-               <property name="text">
-                <string>Current</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QCheckBox" name="checkbox_c">
-               <property name="text">
-                <string>Enabled</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-
              <item row="2" column="0">
-              <widget class="QLabel" name="label_t">
+              <widget class="QCheckBox" name="checkbox_p">
                <property name="text">
-                <string>Temperature</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QCheckBox" name="checkbox_t">
-               <property name="text">
-                <string>Enabled</string>
+                <string>Power</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -301,16 +258,9 @@
              </item>
 
              <item row="3" column="0">
-              <widget class="QLabel" name="label_p">
+              <widget class="QCheckBox" name="checkbox_t">
                <property name="text">
-                <string>Power</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QCheckBox" name="checkbox_p">
-               <property name="text">
-                <string>Enabled</string>
+                <string>MOSFET Temperature</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -452,9 +402,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>128</red>
-                     <green>0</green>
-                     <blue>128</blue>
+                     <red>0</red>
+                     <green>128</green>
+                     <blue>0</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -463,9 +413,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>128</red>
-                     <green>0</green>
-                     <blue>128</blue>
+                     <red>0</red>
+                     <green>128</green>
+                     <blue>0</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -508,9 +458,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>0</red>
-                     <green>170</green>
-                     <blue>0</blue>
+                     <red>128</red>
+                     <green>128</green>
+                     <blue>128</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -519,9 +469,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>0</red>
-                     <green>170</green>
-                     <blue>0</blue>
+                     <red>128</red>
+                     <green>128</green>
+                     <blue>128</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -530,9 +480,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>160</red>
-                     <green>162</green>
-                     <blue>162</blue>
+                     <red>100</red>
+                     <green>100</green>
+                     <blue>100</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -552,12 +502,71 @@
              <item row="3" column="0">
               <widget class="QLabel" name="label_11">
                <property name="text">
-                <string>Temp.</string>
+                <string>MOSFET Temp.</string>
                </property>
               </widget>
              </item>
              
              <item row="4" column="1">
+              <widget class="QLabel" name="readTempF">
+               <property name="palette">
+                <palette>
+                 <active>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>128</red>
+                     <green>128</green>
+                     <blue>128</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </active>
+                 <inactive>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>128</red>
+                     <green>128</green>
+                     <blue>128</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </inactive>
+                 <disabled>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>100</red>
+                     <green>100</green>
+                     <blue>100</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </disabled>
+                </palette>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>16</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>00 °F</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_12">
+               <property name="text">
+                <string>MOSFET Temp.</string>
+               </property>
+              </widget>
+             </item>
+             
+
+
+             <item row="5" column="1">
               <widget class="QLabel" name="readCapAH">
                <property name="font">
                 <font>
@@ -569,7 +578,7 @@
                </property>
               </widget>
              </item>
-             <item row="4" column="0">
+             <item row="5" column="0">
               <widget class="QLabel" name="label_5">
                <property name="text">
                 <string>Capacity</string>
@@ -577,14 +586,14 @@
               </widget>
              </item>
 
-             <item row="5" column="0">
+             <item row="6" column="0">
               <widget class="QLabel" name="label_6">
                <property name="text">
                 <string>Capacity</string>
                </property>
               </widget>
              </item>
-             <item row="5" column="1">
+             <item row="6" column="1">
               <widget class="QLabel" name="readCapWH">
                <property name="font">
                 <font>
@@ -597,7 +606,7 @@
               </widget>
              </item>
 
-             <item row="6" column="1">
+             <item row="7" column="1">
               <widget class="QLabel" name="readTime">
                <property name="font">
                 <font>
@@ -609,7 +618,7 @@
                </property>
               </widget>
              </item>
-             <item row="6" column="0">
+             <item row="7" column="0">
               <widget class="QLabel" name="label_9">
                <property name="text">
                 <string>Time</string>
