@@ -37,7 +37,7 @@ class InstrumentWorker(QRunnable):
             self.signals.status_update.emit("No devices found")
             return
 
-        self.signals.status_update.emit("Connected to {} on COM{}".format(self.instr.name, self.instr.port))
+        self.signals.status_update.emit("Connected to {} on port {}".format(self.instr.name, self.instr.port))
         while self.loop:
             if len(self.commands) > 0:
                 self.handle_command(self.commands.pop(0))
