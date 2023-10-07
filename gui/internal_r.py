@@ -23,7 +23,7 @@ class InternalRTableModel(QAbstractTableModel):
 
     def append(self, row):
         self.beginInsertRows(QModelIndex(), self.rowCount(1), self.rowCount(1))
-        self._data = self._data.append(row, ignore_index=True)
+        self._data = self._data._append(row, ignore_index=True)
         self.endInsertRows()
 
     def data(self, index, role):
