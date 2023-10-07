@@ -295,9 +295,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>0</red>
-                     <green>0</green>
-                     <blue>250</blue>
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -306,9 +306,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>0</red>
-                     <green>0</green>
-                     <blue>250</blue>
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -331,14 +331,20 @@
                  <pointsize>16</pointsize>
                 </font>
                </property>
+               <property name="styleSheet">
+                <string notr="true">border-radius:0.4em;border:1px solid #0000fa; background:#0000fa;</string>
+               </property>
                <property name="text">
                 <string>0.0 V</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
                </property>
               </widget>
              </item>
 
              <item row="1" column="0">
-              <widget class="QLabel" name="label_4">
+              <widget class="QLabel" name="readCurrentLabel">
                <property name="text">
                 <string>Current</string>
                </property>
@@ -352,9 +358,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>250</red>
-                     <green>0</green>
-                     <blue>0</blue>
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -363,9 +369,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>250</red>
-                     <green>0</green>
-                     <blue>0</blue>
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -374,9 +380,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>160</red>
-                     <green>162</green>
-                     <blue>162</blue>
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -388,8 +394,14 @@
                  <pointsize>16</pointsize>
                 </font>
                </property>
+               <property name="styleSheet">
+                <string notr="true">border-radius:0.4em;border:1px solid #fa0000; background:#fa0000;</string>
+               </property>
                <property name="text">
                 <string>0.0 A</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
                </property>
               </widget>
              </item>
@@ -402,9 +414,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>0</red>
-                     <green>128</green>
-                     <blue>0</blue>
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -413,9 +425,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>0</red>
-                     <green>128</green>
-                     <blue>0</blue>
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -424,24 +436,32 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>160</red>
-                     <green>162</green>
-                     <blue>162</blue>
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
                     </color>
                    </brush>
                   </colorrole>
                  </disabled>
                 </palette>
-               </property>               <property name="font">
+               </property>
+               <property name="font">
                 <font>
                  <pointsize>16</pointsize>
                 </font>
                </property>
+               <property name="styleSheet">
+                <string notr="true">border-radius:0.4em;border:1px solid #008000; background:#008000;</string>
+               </property>
                <property name="text">
                 <string>0.0 W</string>
                </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
               </widget>
              </item>
+
              <item row="2" column="0">
               <widget class="QLabel" name="label_12">
                <property name="text">
@@ -458,9 +478,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>128</red>
-                     <green>128</green>
-                     <blue>128</blue>
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -469,9 +489,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>128</red>
-                     <green>128</green>
-                     <blue>128</blue>
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -480,9 +500,9 @@
                   <colorrole role="WindowText">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>100</red>
-                     <green>100</green>
-                     <blue>100</blue>
+                     <red>255</red>
+                     <green>255</green>
+                     <blue>255</blue>
                     </color>
                    </brush>
                   </colorrole>
@@ -494,8 +514,14 @@
                  <pointsize>16</pointsize>
                 </font>
                </property>
+               <property name="styleSheet">
+                <string notr="true">border-radius:0.4em;border:1px solid #808080; background:#808080;</string>
+               </property>
                <property name="text">
-                <string>00 °C</string>
+                <string>00 °C / 00 °F</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
                </property>
               </widget>
              </item>
@@ -507,65 +533,6 @@
               </widget>
              </item>
              
-             <item row="4" column="1">
-              <widget class="QLabel" name="readTempF">
-               <property name="palette">
-                <palette>
-                 <active>
-                  <colorrole role="WindowText">
-                   <brush brushstyle="SolidPattern">
-                    <color alpha="255">
-                     <red>128</red>
-                     <green>128</green>
-                     <blue>128</blue>
-                    </color>
-                   </brush>
-                  </colorrole>
-                 </active>
-                 <inactive>
-                  <colorrole role="WindowText">
-                   <brush brushstyle="SolidPattern">
-                    <color alpha="255">
-                     <red>128</red>
-                     <green>128</green>
-                     <blue>128</blue>
-                    </color>
-                   </brush>
-                  </colorrole>
-                 </inactive>
-                 <disabled>
-                  <colorrole role="WindowText">
-                   <brush brushstyle="SolidPattern">
-                    <color alpha="255">
-                     <red>100</red>
-                     <green>100</green>
-                     <blue>100</blue>
-                    </color>
-                   </brush>
-                  </colorrole>
-                 </disabled>
-                </palette>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>16</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>00 °F</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="0">
-              <widget class="QLabel" name="label_12">
-               <property name="text">
-                <string>MOSFET Temp.</string>
-               </property>
-              </widget>
-             </item>
-             
-
-
              <item row="5" column="1">
               <widget class="QLabel" name="readCapAH">
                <property name="font">
@@ -573,8 +540,14 @@
                  <pointsize>16</pointsize>
                 </font>
                </property>
+               <property name="styleSheet">
+                <string notr="true">border-radius:0.4em;border:1px solid;</string>
+               </property>
                <property name="text">
-                <string>0.0 AH</string>
+                <string>0.0 Ah</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
                </property>
               </widget>
              </item>
@@ -600,8 +573,14 @@
                  <pointsize>16</pointsize>
                 </font>
                </property>
+               <property name="styleSheet">
+                <string notr="true">border-radius:0.4em;border:1px solid;</string>
+               </property>
                <property name="text">
-                <string>0.0 WH</string>
+                <string>0.0 Wh</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
                </property>
               </widget>
              </item>
@@ -613,8 +592,14 @@
                  <pointsize>16</pointsize>
                 </font>
                </property>
+               <property name="styleSheet">
+                <string notr="true">border-radius:0.4em;border:1px solid;</string>
+               </property>
                <property name="text">
                 <string>00:00:00</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
                </property>
               </widget>
              </item>

@@ -116,8 +116,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.readCurrent.setText("{:5.3f} A".format(current))
             self.readCapAH.setText("{:5.3f} Ah".format(data.lastval('cap_ah')))
             self.readCapWH.setText("{:5.3f} Wh".format(data.lastval('cap_wh')))
-            self.readTemp.setText("{:5.0f} °C".format(data.lastval('temp')))
-            self.readTempF.setText("{:5.0f} °F".format(data.lastval('temp') * 1.8 + 32))
+            self.readTemp.setText("{:3.0f} °C / {:3.0f} °F".format(data.lastval('temp'),data.lastval('temp') * 1.8 + 32))
+            #self.readTempF.setText("{:5.0f} °F".format(data.lastval('temp') * 1.8 + 32))
             self.Wattage.setText("{:5.3f} W".format(power))
             self.readTime.setText(data.lastval('time').strftime("%H:%M:%S"))
 
