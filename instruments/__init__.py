@@ -55,5 +55,5 @@ class Instruments:
         else:
             if len(self.instruments) == 0:
                 print("No instruments found")
-                time.sleep(2)
-                self.discover()
+                #time.sleep(2)
+                #self.discover()
