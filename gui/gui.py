@@ -45,6 +45,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.plot_placeholder.setLayout(self.plot_layout())
         self.map_controls()
+        self.programmaticalStateChange = False
         self.tab2 = uic.loadUi("gui/settings.ui")
         self.logControl = LogControl()
         self.swCCCV = SwCCCV()
@@ -102,9 +103,13 @@ class MainWindow(QtWidgets.QMainWindow):
 
             is_on = data.lastval('is_on')
             if is_on:
-                self.en_checkbox.setCheckState(Qt.Checked)
+                if not self.en_checkbox.isChecked():
+                    self.programmaticalStateChange = True
+                    self.en_checkbox.setCheckState(Qt.Checked)
             else:
-                self.en_checkbox.setCheckState(Qt.Unchecked)
+                if self.en_checkbox.isChecked():
+                    self.programmaticalStateChange = True
+                    self.en_checkbox.setCheckState(Qt.Unchecked)
 
             voltage = data.lastval('voltage')
             current = data.lastval('current')
@@ -194,10 +199,13 @@ class MainWindow(QtWidgets.QMainWindow):
         event.accept()
 
     def enabled_changed(self):
-        if self.en_checkbox.hasFocus():
+        if not self.programmaticalStateChange: 
             value = self.en_checkbox.isChecked()
             self.en_checkbox.clearFocus()
             self.backend.send_command({Instrument.COMMAND_ENABLE: value})
+        else:
+            self.programmaticalStateChange = False
+
 
     def voltage_changed(self):
         if self.set_voltage.hasFocus():
