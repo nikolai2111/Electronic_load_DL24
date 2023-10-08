@@ -112,14 +112,13 @@ class MainWindow(QtWidgets.QMainWindow):
             data.setlastval('power', power)
             self.setWindowTitle("Battery tester {:4.2f}V {:4.2f}A ".format(
                 voltage, current))
-            self.readVoltage.setText("{:5.3f} V".format(voltage))
-            self.readCurrent.setText("{:5.3f} A".format(current))
-            self.readCapAH.setText("{:5.3f} Ah".format(data.lastval('cap_ah')))
-            self.readCapWH.setText("{:5.3f} Wh".format(data.lastval('cap_wh')))
-            self.readTemp.setText("{:3.0f} °C / {:3.0f} °F".format(data.lastval('temp'),data.lastval('temp') * 1.8 + 32))
-            #self.readTempF.setText("{:5.0f} °F".format(data.lastval('temp') * 1.8 + 32))
-            self.Wattage.setText("{:5.3f} W".format(power))
-            self.readTime.setText(data.lastval('time').strftime("%H:%M:%S"))
+            self.readVoltage.setText("<pre>{:5.3f} V</pre>".format(voltage))
+            self.readCurrent.setText("<pre>{:5.3f} A</pre>".format(current))
+            self.readCapAH.setText("<pre>{:5.3f} Ah</pre>".format(data.lastval('cap_ah')))
+            self.readCapWH.setText("<pre>{:5.3f} Wh</pre>".format(data.lastval('cap_wh')))
+            self.readTemp.setText("<pre>" + str(int(data.lastval('temp'))) + "°C / " + str(int(data.lastval('temp') * 1.8 + 32)) + "°F</pre>")
+            self.Wattage.setText("<pre>{:5.3f} W</pre>".format(power))
+            self.readTime.setText("<pre>" + data.lastval('time').strftime("%H:%M:%S") + "</pre>")
 
             xlim = (time(0), max([time(0, 1, 0), data.lastval('time')]))
             # clear axes

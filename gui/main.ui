@@ -338,7 +338,7 @@
                 <string notr="true">border-radius:0.4em;border:1px solid #0000fa; background:#0000fa;</string>
                </property>
                <property name="text">
-                <string>0.0 V</string>
+                <string>&lt;pre&gt;0.000 V&lt;/pre&gt;</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -401,7 +401,7 @@
                 <string notr="true">border-radius:0.4em;border:1px solid #fa0000; background:#fa0000;</string>
                </property>
                <property name="text">
-                <string>0.0 A</string>
+                <string>&lt;pre&gt;0.000 A&lt;/pre&gt;</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -457,7 +457,7 @@
                 <string notr="true">border-radius:0.4em;border:1px solid #008000; background:#008000;</string>
                </property>
                <property name="text">
-                <string>0.0 W</string>
+                <string>&lt;pre&gt;0.000 W&lt;/pre&gt;</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -521,7 +521,7 @@
                 <string notr="true">border-radius:0.4em;border:1px solid #808080; background:#808080;</string>
                </property>
                <property name="text">
-                <string>00 °C / 00 °F</string>
+                <string>&lt;pre&gt;00°C / 00°F&lt;/pre&gt;</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -547,7 +547,7 @@
                 <string notr="true">border-radius:0.4em;border:1px solid;</string>
                </property>
                <property name="text">
-                <string>0.0 Ah</string>
+                <string>&lt;pre&gt;0.000 Ah&lt;/pre&gt;</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -580,7 +580,7 @@
                 <string notr="true">border-radius:0.4em;border:1px solid;</string>
                </property>
                <property name="text">
-                <string>0.0 Wh</string>
+                <string>&lt;pre&gt;0.000 Wh&lt;/pre&gt;</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -599,7 +599,7 @@
                 <string notr="true">border-radius:0.4em;border:1px solid;</string>
                </property>
                <property name="text">
-                <string>00:00:00</string>
+                <string>&lt;pre&gt;00:00:00&lt;/pre&gt;</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
