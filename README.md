@@ -39,8 +39,12 @@ I have no idea what I am doing here.
 # Installing
 
 Sorry, no installer. Using this software requires the same steps on Win, Linux and macOS:
-- get python if you don't have it; I used 3.8
-- clone the repo or use "download zip"
-- run `pip install --user -r requirements.txt`
-- you can start the application by running `python main.py`
+1. get python if you don't have it; I used 3.12.3 -> create new environment `pyenv virtualenv E-Load_DL24`
+2. clone the repo or use "download zip"
+3. run `pip install --user -r requirements.txt`
+4. Sometimes you also have to install the `pip install psutil`
+
+# Usage
+1. Activate virtual environment `pyenv activate E-Load_DL24`
+2. Start the application by running `python main.py`
 
