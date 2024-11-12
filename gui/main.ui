@@ -544,7 +544,7 @@
                 </font>
                </property>
                <property name="styleSheet">
-                <string notr="true">border-radius:0.4em;border:1px solid; background:#000;</string>
+                <string notr="true">border-radius:0.4em;border:1px solid #c0c0c0; background:#c0c0c0;</string>
                </property>
                <property name="text">
                 <string>&lt;pre&gt;0.000 Ah&lt;/pre&gt;</string>
@@ -577,7 +577,7 @@
                 </font>
                </property>
                <property name="styleSheet">
-                <string notr="true">border-radius:0.4em;border:1px solid; background:#000;</string>
+                <string notr="true">border-radius:0.4em;border:1px solid #c0c0c0; background:#c0c0c0;</string>
                </property>
                <property name="text">
                 <string>&lt;pre&gt;0.000 Wh&lt;/pre&gt;</string>
@@ -596,7 +596,7 @@
                 </font>
                </property>
                <property name="styleSheet">
-                <string notr="true">border-radius:0.4em;border:1px solid; background:#000;</string>
+                <string notr="true">border-radius:0.4em;border:1px solid #c0c0c0; background:#c0c0c0;</string>
                </property>
                <property name="text">
                 <string>&lt;pre&gt;00:00:00&lt;/pre&gt;</string>
