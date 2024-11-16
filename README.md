@@ -39,11 +39,12 @@ I have no idea what I am doing here.
 # Installing
 
 Sorry, no installer. Using this software requires the same steps on Win, Linux and macOS:
-1. get python if you don't have it; I used 3.12.3 -> create new environment `pyenv virtualenv E-Load_DL24`
-2. clone the repo or use "download zip"
-3. run `pip install -r requirements.txt`
+1. Clone the repo or use "download zip"
+2. Get python if you don't have it; I used 3.11.9 and 3.12.3 and create new environment `pyenv virtualenv E-Load_DL24`.
+3. Activate virtual environment `pyenv activate E-Load_DL24`.
+4. Install requirements with `pip install -r requirements.txt`
 
 # Usage
-1. Activate virtual environment `pyenv activate E-Load_DL24`
-2. Start the application by running `python main.py`
+1. Activate virtual environment `pyenv activate E-Load_DL24`.
+2. Start the application by running `python main.py`.
 
