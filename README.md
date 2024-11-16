@@ -42,7 +42,6 @@ Sorry, no installer. Using this software requires the same steps on Win, Linux a
 1. get python if you don't have it; I used 3.12.3 -> create new environment `pyenv virtualenv E-Load_DL24`
 2. clone the repo or use "download zip"
 3. run `pip install -r requirements.txt`
-4. Sometimes you also have to install the `pip install psutil`
 
 # Usage
 1. Activate virtual environment `pyenv activate E-Load_DL24`
